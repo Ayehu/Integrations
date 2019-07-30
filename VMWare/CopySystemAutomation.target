@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <ItemGroup>
+    <System_Management_Automation Include="$(OutDir)System.Management.Automation.dll" />
+  </ItemGroup>
+
+  <Target Name="CopySystemManagmentAutomation" AfterTargets="AfterBuild">
+    <Copy SourceFiles="@(System_Management_Automation)" DestinationFolder="$(MSBuildProjectDirectory)\$(OutDir)" OverwriteReadOnlyFiles="true" Retries="3" />
+    <Message Text="File System.Management.Automation.dll successfully copied to $(MSBuildProjectDirectory)\$(OutDir)" Importance="normal" />
+  </Target>
+  
+</Project>
